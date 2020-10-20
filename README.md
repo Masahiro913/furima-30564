@@ -26,7 +26,7 @@ has_many : deals
 | category_id        | int        | null: false                    |
 | status_id          | int        | null: false                    |
 | deal_fee_id        | int        | null: false                    |
-| region_id          | int        | null: false                    |
+| prefecture_id      | int        | null: false                    |
 | delivery_period_id | int        | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
