@@ -19,6 +19,14 @@ class Item < ApplicationRecord
     validates :delivery_period_id
   end
 
+  with_options numericality: {greater_than_or_equal_to: 2} do
+    validates :category_id
+    validates :status_id
+    validates :deal_fee_id
+    validates :prefecture_id
+    validates :delivery_period_id
+  end
+
   validates :price, numericality: {greater_than_or_equal_to: 300}
   validates :price, numericality: {less_than_or_equal_to: 9999999}
   validates :price, format: {with: /[0-9]/}
