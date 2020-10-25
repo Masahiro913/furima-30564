@@ -55,8 +55,8 @@ belongs_to :item
 | city_town       | string     | null: false                    |
 | addressline     | string     | null: false                    |
 | building_name   | string     |                                |
-| deal            | references | null: false, foreign_key: true |
 | tell_buyer      | int        | null: false                    |
+| deal            | references | null: false, foreign_key: true |
 
 
 ### association
