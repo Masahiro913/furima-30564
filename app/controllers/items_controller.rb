@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
-  before_action :set_item, only: [:update,:edit,:show, :update]
-  before_action :user_confirmation, only: [:edit]
+  before_action :set_item, only: [:update,:edit,:show, :update, :destroy]
+  before_action :user_confirmation, only: [:edit, :destroy]
 
   def index
     @items = Item.order(id: :DESC)
@@ -34,6 +34,15 @@ class ItemsController < ApplicationController
     end
     
   end
+
+  def destroy
+    if @item.destroy
+      render :index
+    else 
+      render :show
+    end
+  end
+
 
   private
 
