@@ -37,8 +37,10 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.destroy
-    render :index
-    else render :show
+      render :index
+    else 
+      render :show
+    end
   end
 
 
