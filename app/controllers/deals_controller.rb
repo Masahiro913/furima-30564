@@ -7,8 +7,12 @@ class DealsController < ApplicationController
 
   def new
     @dealAddress = DealAddressForm.new
-    if current_user.id == @item.user_id
+    @deals = Deal.pluck(:item_id)
+
+    if @deals.include?(params[:item_id].to_i)
       redirect_to root_path
+    elsif current_user.id == @item.user_id
+        redirect_to root_path
     end
   end
 
