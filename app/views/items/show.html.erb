@@ -10,7 +10,9 @@
       <%= image_tag @item.image ,class:"item-box-img" %>
       <%# 商品が売れている場合は、sold outを表示しましょう %>
       <div class='sold-out'>
-        <span>Sold Out!!</span>
+        <% if @deals.include?(@item.id) %>
+          <span>Sold Out!!</span>  
+        <% end %>
       </div>
       <%# //商品が売れている場合は、sold outを表示しましょう %>
     </div>
@@ -35,7 +37,10 @@
 
   <% else %>
     <%# 商品が売れていない場合はこちらを表示しましょう %>
-    <%= link_to '購入画面に進む', "#" ,class:"item-red-btn"%>
+    <% if @deals.include?(@item.id) %>
+    <% else %>
+      <%= link_to '購入画面に進む', new_item_deal_path(@item) ,class:"item-red-btn"%>
+     <% end %>
     <%# //商品が売れていない場合はこちらを表示しましょう %>
   <% end %>
   <% end %>

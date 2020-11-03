@@ -8,3 +8,5 @@ window.addEventListener('load', () => {
     addBenefitDom.innerHTML = Math.floor(inputValue*0.9)
   })
 });
+
+

@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order(id: :DESC)
+    @deals = Deal.pluck(:item_id)
   end
 
   def new
@@ -21,6 +22,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @deals = Deal.pluck(:item_id)
+    
   end
 
   def edit
@@ -42,6 +45,7 @@ class ItemsController < ApplicationController
       render :show
     end
   end
+
 
 
   private
