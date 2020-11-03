@@ -21,8 +21,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @deals = Deal.pluck(:item_id)
-    
   end
 
   def edit

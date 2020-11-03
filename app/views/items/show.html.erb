@@ -9,7 +9,7 @@
     <div class='item-img-content'>
       <%= image_tag @item.image ,class:"item-box-img" %>
       <div class='sold-out'>
-        <% if @deals.include?(@item.id) %>
+        <% if @item.deal.present? %>
           <span>Sold Out!!</span>  
         <% end %>
       </div>
@@ -34,11 +34,10 @@
 
   <% else %>
     <%# 商品が売れている場合%>
-    <% if @deals.include?(@item.id) %>
-    <% else %>
+    <% unless @item.deal.present? %>
       <%= link_to '購入画面に進む', new_item_deal_path(@item) ,class:"item-red-btn"%>
-     <% end %>
-    <%# //商品が売れていない場合 %>
+    <% end %>
+    <%# //商品が売れている場合 %>
   <% end %>
   <% end %>
     <%# //ログインユーザーが出品者である場合%>

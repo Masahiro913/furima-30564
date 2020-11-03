@@ -3,8 +3,7 @@ class DealsController < ApplicationController
   before_action :item_info, only: [:new, :create]
   before_action :rejection_to_enter, only: [:new]
 
-  def index
-  end
+
 
   def new
     @dealAddress = DealAddressForm.new
