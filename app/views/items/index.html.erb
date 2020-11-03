@@ -134,7 +134,7 @@
 
               <%# 商品が売れている場合 %>
               <div class='sold-out'>
-                  <% if @deals.include?(item.id)%>
+                  <% if item.deal.present?%>
                     <span>Sold Out!!</span>
                   <% end %>
                </div>

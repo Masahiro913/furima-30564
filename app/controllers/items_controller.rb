@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order(id: :DESC)
-    @deals = Deal.pluck(:item_id)
   end
 
   def new

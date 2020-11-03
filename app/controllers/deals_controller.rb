@@ -7,9 +7,7 @@ class DealsController < ApplicationController
 
   def new
     @dealAddress = DealAddressForm.new
-    @deals = Deal.pluck(:item_id)
-
-    if @deals.include?(params[:item_id].to_i)
+    if @item.deal.present?
       redirect_to root_path
     elsif current_user.id == @item.user_id
         redirect_to root_path
@@ -30,7 +28,7 @@ class DealsController < ApplicationController
   private
 
   def deal_params
-    params.require(:deal_address_form).permit(:post_number, :prefecture_id, :city_town, :addressline, :building_name, :tell_buyer).merge(user_id: current_user.id).merge(item_id: @item.id).merge(token: params[:token])
+    params.require(:deal_address_form).permit(:post_number, :prefecture_id, :city_town, :addressline, :building_name, :tell_buyer).merge(user_id: current_user.id).merge(item_id: @item.id, token: params[:token])
   end
 
   def item_info

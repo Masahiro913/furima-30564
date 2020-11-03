@@ -8,6 +8,9 @@ RSpec.describe DealAddressForm, type: :model do
   it "全ての値が入力されていれば購入できる" do
     expect(@dealAddressForm).to be_valid
   end
+  it "建物名が入力されていなくても購入できる" do
+    expect(@dealAddressForm).to be_valid
+  end
   it "郵便番号が入力されていないと購入できない" do
     @dealAddressForm.post_number = ""
     @dealAddressForm.valid?
