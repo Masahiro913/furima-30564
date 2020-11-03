@@ -9,6 +9,7 @@ RSpec.describe DealAddressForm, type: :model do
     expect(@dealAddressForm).to be_valid
   end
   it "建物名が入力されていなくても購入できる" do
+    @dealAddressForm.building_name = ""
     expect(@dealAddressForm).to be_valid
   end
   it "郵便番号が入力されていないと購入できない" do

@@ -1,17 +1,13 @@
 class DealsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   before_action :item_info, only: [:new, :create]
+  before_action :rejection_to_enter, only: [:new]
 
   def index
   end
 
   def new
     @dealAddress = DealAddressForm.new
-    if @item.deal.present?
-      redirect_to root_path
-    elsif current_user.id == @item.user_id
-        redirect_to root_path
-    end
   end
 
   def create
@@ -42,5 +38,13 @@ class DealsController < ApplicationController
         card: deal_params[:token],
         currency: 'jpy'
       )
+  end
+
+  def rejection_to_enter
+    if @item.deal.present?
+      redirect_to root_path
+    elsif current_user.id == @item.user_id
+        redirect_to root_path
+    end
   end
 end
