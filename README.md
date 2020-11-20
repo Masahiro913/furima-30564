@@ -1,3 +1,10 @@
+# URL
+https://furima-30564.herokuapp.com/
+
+# アプリケーション概要
+https://docs.google.com/document/d/1LbRP7wi8EansDWHNDsASjaIL9sj2qM3l7YxODmvR10I/edit
+アクセスには認証IDとパスワードが必要のため上記の概要に記載してあります。
+
 # テーブル設計
 
 ## usersテーブル
